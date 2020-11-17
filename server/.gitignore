@@ -1,7 +1,10 @@
-**/node_modules
-**/package-lock.json
+coverage
 .vscode
-.idea
+
+# local env files
+.env.local
+.env.*.local
+.env
 
 # Log files
 npm-debug.log*

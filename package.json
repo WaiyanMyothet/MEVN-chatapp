@@ -1,5 +1,9 @@
 {
-  "dependencies": {
-    "slugify": "^1.4.6"
-  }
+  "name": "Chatapp",
+  "version": "1.0.0",
+  "description": "Chatapp",
+  "main": "index.js",
+  "repository": "https://github.com/WaiyanMyothet/MEVN-chatapp.git",
+  "author": "Waiyan Myothet <menooby1996@gmail.com>",
+  "license": "MIT"
 }
