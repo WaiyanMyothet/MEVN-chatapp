@@ -1,4 +1,5 @@
 const { check } = require('express-validator');
+const { User } = require('../models/User');
 
 const createErrorObject = errors => {
     const errorObject = [];
@@ -38,8 +39,29 @@ const checkRegistrationFields = async (req, res, next) => {
         next();
     }
 };
+const checkLoginFields = async (req, res, next) => {
+    let errors = [];
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+        errors.push({ param: 'email', msg: 'Invalid Details Entered' });
+    } else {
+        if (req.body.password !== null && !(await user.isValidPassword(req.body.password))) {
+            errors.push({ param: 'password', msg: 'Invalid Details Entered' });
+        }
+    }
+
+    if (errors.length !== 0) {
+        res.send({
+            errors: createErrorObject(errors)
+        });
+    } else {
+        next();
+    }
+};
+
 
 module.exports = {
     checkRegistrationFields,
-    createErrorObject
+    createErrorObject,
+    checkLoginFields
 };
