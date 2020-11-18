@@ -1,5 +1,6 @@
 const { check } = require('express-validator');
 const { User } = require('../models/User');
+const passport = require('passport');
 
 const createErrorObject = errors => {
     const errorObject = [];
@@ -58,10 +59,18 @@ const checkLoginFields = async (req, res, next) => {
         next();
     }
 };
+const customSocialAuthenticate = socialAuth => {
+    return (req, res, next) => {
+        passport.authenticate(socialAuth, {
+            state: JSON.stringify({ _socket: req.query.socketId })
+        })(req, res, next);
+    };
+};
 
 
 module.exports = {
     checkRegistrationFields,
     createErrorObject,
-    checkLoginFields
+    checkLoginFields,
+    customSocialAuthenticate
 };

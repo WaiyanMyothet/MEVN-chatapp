@@ -5,11 +5,16 @@ const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 
+const passport = require('passport');
+
+const socialAuthActions = require('../actions/socialAuthActions');
+
 
 /** Middleware */
 const {
     checkRegistrationFields,
-    checkLoginFields
+    checkLoginFields,
+    customSocialAuthenticate
 } = require('../middleware/authenticate');
 
 /**
@@ -95,6 +100,9 @@ router.post('/login', checkLoginFields, async (req, res) => {
     res.status(200).send({ auth: true, token: `Bearer ${token}`, user });
 });
 
+router.get('/google', customSocialAuthenticate('google'));
+router.get('/facebook', customSocialAuthenticate('facebook'));
 
-
+router.get('/google/redirect', passport.authenticate('google'), socialAuthActions.google);
+router.get('/facebook/redirect', passport.authenticate('facebook'), socialAuthActions.facebook);
 module.exports=router;
