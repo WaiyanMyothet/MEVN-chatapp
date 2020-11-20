@@ -16,6 +16,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const expressValidator = require('express-validator');
 
+const enforce = require('express-sslify');
+
 /** Connect to MongoDB */
 const mongoose = require('mongoose');
 require('./db/mongoose');
@@ -56,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV !== 'test') {
     app.listen(process.env.PORT || 5000, () => {
-        console.log('Server running at port 8000...');
+        //console.log('Server running at port 8000...');
        // logger.info(`[LOG=SERVER] Server started on port ${process.env.PORT}`);
     });
 }
