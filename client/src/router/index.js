@@ -13,7 +13,7 @@ const router = new Router({
         {
             path: '/',
             name: 'Home',
-            //component: () => import('@/views/Home.vue'),
+            component: () => import('@/views/Home.vue'),
             meta: {
                 requiresAuth: false
             }
@@ -21,7 +21,7 @@ const router = new Router({
         {
             path: '/about',
             name: 'About',
-            //component: () => import('@/views/About.vue'),
+            component: () => import('@/views/About.vue'),
             meta: {
                 requiresAuth: false
             }
@@ -57,7 +57,7 @@ const router = new Router({
         {
             path: '/user/:handle',
             name: 'UserProfile',
-            //component: () => import('@///components/user/UserProfile.vue'),
+            component: () => import('@///components/user/UserProfile.vue'),
             props: true,
             meta: {
                 requiresAuth: true,
@@ -68,7 +68,7 @@ const router = new Router({
         {
             path: '/user/:handle/edit',
             name: 'EditUserProfile',
-            //component: () => import('@///components/user/EditUserProfile.vue'),
+            component: () => import('@///components/user/EditUserProfile.vue'),
             props: true,
             meta: {
                 requiresAuth: true,
@@ -79,7 +79,7 @@ const router = new Router({
         {
             path: '/rooms',
             name: 'RoomList',
-            //component: () => import('@///components/room/RoomList.vue'),
+            component: () => import('@///components/room/RoomList.vue'),
             props: true,
             meta: {
                 requiresAuth: true,
@@ -90,7 +90,7 @@ const router = new Router({
         {
             path: '/room/:id',
             name: 'Room',
-            //component: () => import('@///components/room/Room.vue'),
+            component: () => import('@///components/room/Room.vue'),
             meta: {
                 requiresAuth: true,
                 transitionName: 'router-anim',
