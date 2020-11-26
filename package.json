@@ -11,7 +11,7 @@
     "client:test": "npm run test --prefix client",
     "server:test:watch": "npm run test:watch --prefix server",
     "server:test:ci": "npm run test:ci --prefix server",
-    "test": "npm run test --prefix client && npm run server:test:ci",
+    "test": "npm run server:test:ci",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run serve --prefix client\"",
     "build": "npm run build --prefix client",
     "start": "npm run start --prefix server",
