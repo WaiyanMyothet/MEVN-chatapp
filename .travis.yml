@@ -5,6 +5,10 @@ node_js:
 services:
     - mongodb
 
+env:
+    - DATABASE_URL=mongodb://localhost:27017/testdb JWT_SECRET=testsecret PORT=5000
+
+
 install:
     - npm install
     - npm install --prefix client
