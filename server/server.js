@@ -71,7 +71,7 @@ if (process.env.HEROKU_DEPLOYMENT === 'true') {
     app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
-app.use(helmet());
+//app.use(helmet());
 app.use(compression());
 
 app.use(bodyParser.urlencoded({ extended: true }));
