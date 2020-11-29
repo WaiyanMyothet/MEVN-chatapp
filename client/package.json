@@ -13,6 +13,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "particles.js": "^2.0.0",
+    "register-service-worker": "^1.7.1",
     "slugify": "^1.4.6",
     "socket.io-client": "^3.0.3",
     "typed.js": "^2.0.11",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
