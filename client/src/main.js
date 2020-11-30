@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router';
 import store from './store';
+import VueNativeNotification from 'vue-native-notification'
 import io from 'socket.io-client';
 import setAuthToken from './utils/authToken';
 import axios from 'axios';
@@ -10,6 +11,12 @@ import './registerServiceWorker'
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = ['ion-icons', /^ion-/];
+Vue.use(VueNativeNotification, {
+  // Automatic permission request before
+  // showing notification (default: true)
+  requestOnNotify: false
+})
+Vue.notification.requestPermission()
 
 Vue.prototype.moment = moment;
 
